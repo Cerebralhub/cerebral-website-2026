@@ -457,6 +457,8 @@ button { font: inherit; color: inherit; border: 0; background: none; cursor: poi
   font-size: clamp(2.4rem, 4.05vw, 3.8rem);
   line-height: 1.16;
   margin-bottom: 22px;
+  text-wrap: balance;
+  overflow-wrap: break-word;
 }
 
 /* hand-drawn underline under the accent word */
@@ -754,9 +756,12 @@ button { font: inherit; color: inherit; border: 0; background: none; cursor: poi
   align-items: center;
 }
 .page-hero h1 {
-  font-size: clamp(2.35rem, 5.4vw, 4.3rem);
+  font-size: clamp(2.375rem, 0.31rem + 5.02vw, 4.3rem);
   line-height: 1.14;
   letter-spacing: -.032em;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  hyphens: manual;
 }
 .page-hero .lede { color: var(--on-dark-muted); margin-top: 24px; }
 
@@ -1536,6 +1541,10 @@ button { font: inherit; color: inherit; border: 0; background: none; cursor: poi
   }
   .rail__line::after { display: none; }
   .rail__body p { max-width: 52ch; }
+
+  /* inner-page banner scales down with the viewport */
+  .page-hero { padding-top: clamp(108px, 16vw, 148px); padding-bottom: clamp(48px, 8vw, 84px); }
+  .page-hero .lede { margin-top: 18px; }
 }
 
 /* large phones / small tablets */
@@ -1562,15 +1571,18 @@ button { font: inherit; color: inherit; border: 0; background: none; cursor: poi
   .eyebrow::before { display: none; }
   .hero__badge { letter-spacing: .12em; font-size: .68rem; padding: 8px 14px 8px 12px; }
   .hero__chip { font-size: .66rem; padding: 7px 13px; }
+  .hero h1 { font-size: clamp(1.9rem, 1.62rem + 1.89vw, 2.4rem); line-height: 1.2; }
   .hero__actions .btn--ghost { display: none; }
   .reveal { transition-duration: .55s; }
+  .page-hero h1 { font-size: clamp(1.55rem, 0.78rem + 3.86vw, 2.375rem); line-height: 1.18; letter-spacing: -.024em; }
+  .page-hero .lede { max-width: 46ch; }
+  .crumb { font-size: .7rem; letter-spacing: .12em; margin-bottom: 16px; }
 }
 
 /* small phones */
 @media (max-width: 480px) {
   :root { --gutter: 18px; }
   .hero { padding-top: 108px; padding-bottom: 54px; }
-  .hero h1 { font-size: clamp(2.1rem, 10.5vw, 2.9rem); }
   .hero .lede, .lede { font-size: 1rem; }
   .hero__actions { width: 100%; }
   .hero__actions .btn { flex: 1 1 100%; justify-content: center; }
@@ -1597,6 +1609,11 @@ button { font: inherit; color: inherit; border: 0; background: none; cursor: poi
   }
   .hero__proof span { max-width: none; }
   .faq__q { font-size: 1rem; gap: 14px; }
+  .page-hero { padding-top: 100px; padding-bottom: 44px; }
+  .page-hero h1 { line-height: 1.2; }
+  .page-hero .lede { font-size: .98rem; margin-top: 14px; }
+  .page-hero__grid { gap: 28px; }
+  .page-hero__grid > div:last-child img { max-width: min(320px, 76vw); }
 }
 
 /* very small phones */
@@ -1605,8 +1622,9 @@ button { font: inherit; color: inherit; border: 0; background: none; cursor: poi
 }
 
 @media (max-width: 360px) {
-  .hero h1 { font-size: 2rem; }
   .display { font-size: clamp(1.9rem, 9vw, 2.3rem); }
+  .page-hero h1 { line-height: 1.22; }
+  .page-hero .lede { font-size: .94rem; }
   .h2 { font-size: 1.6rem; }
   .nav__logo img { width: 108px; }
 }
@@ -1615,6 +1633,8 @@ button { font: inherit; color: inherit; border: 0; background: none; cursor: poi
 @media (max-height: 520px) and (orientation: landscape) {
   .hero { padding-top: 104px; padding-bottom: 56px; }
   .hero__visual { max-width: 300px; }
+  .page-hero { padding-top: 104px; padding-bottom: 52px; }
+  .page-hero h1 { font-size: clamp(1.9rem, 4.4vw, 2.6rem); }
 }
 
 @media (prefers-reduced-motion: reduce) {
